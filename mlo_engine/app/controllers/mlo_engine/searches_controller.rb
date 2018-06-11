@@ -3,7 +3,12 @@ require_dependency "mlo_engine/application_controller"
 module MloEngine
   class SearchesController < ApplicationController
 		def index
-			render json: { message: "MLO Engine!!" }
+			subdomain = request.subdomain
+			subdomain = subdomain.gsub('-tdbank')
+      
+						
+#			render json: {message: "Hello there!!"}
+			@user.last
 		end
 
 		def	show
