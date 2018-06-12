@@ -6,11 +6,14 @@ module MloEngine
 			subdomain = request.subdomain
 			subdomain = subdomain.gsub('-tdbank')
       
-		  user = User.last.as_json(:only => [ :first_name, :last_name, :email, :job_title ] )				
-      render json: {mlo: user}
+		  user = User.find_by( :subdomain => subdomain ).as_json(:only => [ :first_name, :last_name, :email, :job_title, :bio ] )				
+
+      render json: { mlo: user }
+
 		end
 
 		def	show
+
 		end
 
   end
